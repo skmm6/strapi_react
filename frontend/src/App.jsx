@@ -1,23 +1,25 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 
-
-
-//странички и компоненты испорт
-import Homepage from "./pages/homepage";
-import ReviewDetails from "./pages/ReviewDetails";
-import Category from "./pages/Category";
-import SiteHeader from "./components/SiteHeader";
-
+// page & layout imports
+import Homepage from './pages/Homepage'
+import ReviewDetails from './pages/ReviewDetails'
+import Category from './pages/Category'
+import SiteHeader from "./components/SiteHeader"
 
 function App() {
   return (
-    <div className="App">
-      <SiteHeader />
-      <Switch>
-        
-      </Switch>
-    </div>
+        <div className="App">
+          <Router>
+        <SiteHeader />
+            <Routes>
+                <Route exact path="/" element={<Homepage />} />
+                <Route exact path="/details/:id" element={<ReviewDetails />} />
+                <Route exact path="/category/:id" element={<Category />} />
+            </Routes>
+        </Router>
+      </div>
   );
 }
 
-export default App;
+export default App
