@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "reviews",
   "info": {
-    "name": "review"
+    "name": "Review",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -16,15 +17,21 @@
       "required": true,
       "unique": true
     },
-    "rating": {
-      "required": true,
-      "max": 10,
-      "min": 1,
-      "type": "integer"
-    },
     "body": {
-      "type": "richtext",
-      "required": true
+      "type": "richtext"
+    },
+    "rating": {
+      "type": "integer",
+      "private": false,
+      "required": true,
+      "unique": false,
+      "max": 10,
+      "min": 1
+    },
+    "categories": {
+      "collection": "category",
+      "via": "reviews",
+      "dominant": true
     }
   }
 }
